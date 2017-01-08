@@ -21,7 +21,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     DECLARE @g geography 
-	SET @g = CONVERT(NVARCHAR(200),'POINT(' + CONVERT(NVARCHAR(20),@lon) + ' ' + CONVERT(NVARCHAR(20),@lat) +')')
+	--SET @g = CONVERT(NVARCHAR(200),'POINT(' + CONVERT(NVARCHAR(20),@lon) + ' ' + CONVERT(NVARCHAR(20),@lat) +')')
+	SET @g = geography::Point(@lat, @lon, 4326)
 	
 	SET @distance = @distance * 1000
 	
